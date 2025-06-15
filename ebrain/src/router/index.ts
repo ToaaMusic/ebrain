@@ -22,17 +22,17 @@ const routes = [
       }
     ]
   },
+  // 👇 fallback，防止直接访问 /ebrain/xxx 404
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  }
 
 ]
 
 const router = createRouter({
   history: createWebHistory('/ebrain/'),
-  routes: [
-    {
-      path: '/',
-      component: () => import('@/views/HomeView.vue')
-    },
-  ]
+  routes
 })
 
 export default router
